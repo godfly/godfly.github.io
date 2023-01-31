@@ -10,7 +10,7 @@ tags:
 - Hexo
 ---
 
-这里记录下这个[Hexo Blog](https://hexo.io/)的搭建过程。上个Blog是基于LNMP在阿里云上搭建的，服务器+域名+没有备份显然没有免费的github香啊。整个搭建过程熟练的话半小时就能搞定，托管在github上基本0成本，用于学习的输出足够了。这里主要记录Hexo搭建-Icarus主题安装-主题修改-Hexo博客撰写-上传github，共五部分。
+这里记录下这个[Hexo Blog](https://hexo.io/)的搭建过程。上个Blog是基于LNMP在阿里云上搭建的，服务器+域名+没有备份显然没有免费的github香啊。整个搭建过程熟练的话半小时就能搞定，托管在github上基本0成本，用于学习的输出足够了。这里主要记录`Hexo搭建`-`Icarus主题安装`-`主题修改`-`Hexo博客撰写`-`上传github`，共五部分。
 
 <!-- more -->
 
@@ -27,7 +27,7 @@ tags:
 ### 1.环境安装
 使用HomeBrew安装NodeJS
 
-``` shell
+``` bash
 # 安装
 brew install node
 # 验证
@@ -38,7 +38,7 @@ npm -v
 ### 2.Hexo安装
 使用npm安装Hexo
 
-``` shell
+``` bash
 # 安装
 npm install -g hexo-cli
 # 进阶安装（没有使用）
@@ -49,7 +49,7 @@ npm install hexo
 [Hexo的官方文档](https://hexo.io/zh-cn/docs/setup)中有详细内容，下面记录命令。
 
 1.Hexo项目初始化
-``` shell
+``` bash
 hexo init <folder>
 cd <folder>
 npm install
@@ -212,6 +212,9 @@ hexo config theme icarus
 7. To be Continue
 
 当然，如果你觉得还不错也可以直接clone我的git，欢迎star~
+``` bash
+git clone https://github.com/godfly/godfly.github.io.git themes/icarus
+```
 最后感谢Icarus作者
 
 ## Hexo博客撰写
@@ -237,6 +240,47 @@ hexo new photo "My Gallery"
 ```
 
 ## 上传github
-[Hexo官方文档](https://hexo.io/zh-cn/docs/github-pages) 比较详细，常用的命令：
+[Hexo官方文档](https://hexo.io/zh-cn/docs/github-pages) 比较详细，我使用的方法是`hexo git deploy`，这里默认你有github账号并配置了sshkey：
 
+1. github配置
+   
+   新建仓库或修改仓库名为：<Your-Github-Username>.github.io，这个也是后面访问的域名。
+   
+   在仓库settings中配置GitHub Pages，选择`Deploy from a branch`，配置`branch`与本地配置的branch对应，如我的是`page`
 
+2. 本地配置
+   
+   1. Hexo安装Git插件
+   ``` bash
+   npm install hexo-deployer-git
+   ```
+   
+   2. 修改`_config.yml`文件，deploy部分为
+   ``` yml
+   deploy:
+    type: git
+    repo: https://github.com/<Your-Github-Username>/<Your-Github-Username>.github.io.git
+    branch: page
+   ```
+
+   3. Hexo部署
+   ``` bash
+   # 清除缓存
+   hexo clean
+   # 生成静态文件
+   hexo g
+   # 部署
+   hexo d
+   ```
+
+3. 验证&Debug
+   验证：访问<Your-Github-Username>.github.io
+   Debug：使用chrome开发工具查看终端错误，例如我遇到了字体加载问题，解决方法是更换`_config.icarus.yml`的`fontcdn`为`loli`
+
+到此即完成了hexo部署到github。
+
+## 参考文档
+[Hexo官方文档](https://hexo.io/zh-cn/docs/) 
+[Icarus官方网站](https://github.com/ppoffice/hexo-theme-icarus)
+[Icarus用户自定义配置1](https://removeif.github.io/theme/%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81%E5%88%86%E4%BA%AB.html#more)
+[Icarus用户自定义配置2](https://blog.mchook.cn/2021/07/22/icarus%E4%B8%BB%E9%A2%98%E8%87%AA%E5%AE%9A%E4%B9%89/ )
