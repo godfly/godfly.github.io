@@ -107,17 +107,15 @@ git clone https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus -b <ve
 2. Icarus配置启用
 
 在站点配置文件`_config.yml`中的开启Icarus：
-```
-{% codeblock _config.yml lang:yaml %}
+
+``` yml
 theme: icarus
-{% endcodeblock %}
 ```
 
 或使用`hexo`命令修改主题为Icarus:
-```
-{% codeblock "命令行" %}
+
+``` bash
 hexo config theme icarus
-{% endcodeblock %}
 ```
 
 到此就完成了Icarus主题安装
@@ -165,6 +163,7 @@ hexo config theme icarus
     页面宽度使用了[bulma](https://bulma.io/documentation/columns/sizes/)关于宽度的定义，所有栏加起来要等于12，因此主页面也需要修改：
 
     `themes/icarus/layout/layout.jsx`中修改widge宽度`is-4-widescreen`变小为`is-3-widescreen`。
+    
     ``` javascript
     <div class={classname({
         column: true,
