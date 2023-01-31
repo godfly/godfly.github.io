@@ -143,5 +143,5 @@ plugins:
         pixel_id: 
 providers:
     cdn: jsdelivr
-    fontcdn: google
+    fontcdn: loli
     iconcdn: fontawesome
