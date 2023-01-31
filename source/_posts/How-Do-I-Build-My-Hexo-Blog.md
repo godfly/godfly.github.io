@@ -6,7 +6,8 @@ categories:
 - Tech
 - Web
 tags: 
-- [Blog,Hexo]
+- Blog
+- Hexo
 ---
 
 这里记录下这个[Hexo Blog](https://hexo.io/)的搭建过程。上个Blog是基于LNMP在阿里云上搭建的，服务器+域名+没有备份显然没有免费的github香啊。整个搭建过程熟练的话半小时就能搞定，托管在github上基本0成本，用于学习的输出足够了。这里主要记录Hexo搭建-Icarus主题安装-主题修改-Hexo博客撰写-上传github，共五部分。
