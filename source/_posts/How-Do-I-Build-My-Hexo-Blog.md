@@ -1,5 +1,5 @@
 ---
-title: 建站
+title: 使用Hexo建Blog
 date: 2023-01-31 10:18:19
 toc: true
 categories: 
@@ -10,16 +10,17 @@ tags:
 - Hexo
 ---
 
-这里记录下这个[Hexo Blog](https://hexo.io/)的搭建过程。上个Blog是基于LNMP在阿里云上搭建的，服务器+域名+没有备份显然没有免费的github香啊。整个搭建过程熟练的话半小时就能搞定，托管在github上基本0成本，用于学习的输出足够了。这里主要记录`Hexo搭建`-`Icarus主题安装`-`主题修改`-`Hexo博客撰写`-`上传github`，共五部分。
+这里记录下这个[Blog](https://godfly.github.io/)的搭建过程。上个Blog是基于LNMP在阿里云上搭建的，服务器+域名+没有备份显然没有免费的github香啊。整个搭建过程熟练的话半小时就能搞定，托管在github上基本0成本，用于学习的输出足够了。这里主要记录`Hexo搭建`-`Icarus主题安装`-`主题修改`-`Hexo博客撰写`-`上传github`，共五部分。
 
 <!-- more -->
 
 ## Blog方案
 
-如你所见的Blog是使用[Hexo Blog](https://hexo.io/) (version 6.3.0, hexo-cli 4.3.0)搭建的，使用了[Icarus](https://github.com/ppoffice/hexo-theme-icarus)(release 5.1.1)主题。我使用的是Mac系统，[nodejs](https://nodejs.org/)for Mac version 14.17.0。
+如你所见的Blog是使用[Hexo Blog](https://hexo.io/) (version 6.3.0, hexo-cli 4.3.0)搭建的，使用了[Icarus](https://github.com/ppoffice/hexo-theme-icarus)(release 5.1.1)主题。我使用的是Mac系统，[nodejs for Mac](https://nodejs.org/) version 14.17.0。
 
 选用Hexo理由有两个：用户基数大，官方更新频繁。避免搭建时或日后修改时踩坑。相对于Hexo另一个主流的静态博客框架是基于Ruby的JekyII，不熟悉Ruby的话折腾成本要大一些，Pass。
 
+---
 ## Hexo搭建
 
 [Hexo的官方文档](https://hexo.io/zh-cn/docs/index.html)写的非常详细，以下只是记录。
@@ -51,6 +52,7 @@ npm install hexo
 [Hexo的官方文档](https://hexo.io/zh-cn/docs/setup)中有详细内容，下面记录命令。
 
 1. Hexo项目初始化
+   
 ``` bash
 hexo init <folder>
 cd <folder>
@@ -58,7 +60,9 @@ npm install
 ```
 
 2. 项目结构
+   
 新建完成后文件夹目录如下：
+
 ``` 
 .
 ├── _config.yml
@@ -69,6 +73,7 @@ npm install
 |   └── _posts
 └── themes
 ```
+
 其中比较重要的是：
 - `_config.yml`: 站点配置文件，包括站点标题、作者、时区、URL、语言、主题等[配置](https://hexo.io/zh-cn/docs/configuration)
 - `package.json`:` 应用程序信息，包括Hexo版本、依赖等
@@ -77,7 +82,8 @@ npm install
 - themes: [主题](https://hexo.io/zh-cn/docs/themes) 文件夹。Hexo 会根据主题来生成静态页面
 
 3. 验证
-``` shell
+   
+``` bash
 # 启动服务
 hexo server
 ```
@@ -95,6 +101,7 @@ hexo server
 ``` shell
 git clone https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus -b <version number> --depth 1
 ```
+
 可以省略`-b <version number>`来获取Icarus的最新开发版本。 如果你想同时下载Git仓库的完整提交历史，请同时省略`--depth 1`
 
 2. Icarus配置启用
@@ -126,9 +133,11 @@ hexo config theme icarus
 ### 2. Icarus样式修改
 
 1. Footer高度调整
+   
    `themes/icarus/include/style/base.styl`中添加 `$footer-padding`，例如`$footer-padding ?= 2rem 1.5rem 2rem`
 
 2. 加宽正文布局 [引用](https://blog.mchook.cn/2021/07/22/icarus%E4%B8%BB%E9%A2%98%E8%87%AA%E5%AE%9A%E4%B9%89/)
+   
    `themes/icarus/include/style/base.styl`修改已有配置:
    ``` javascript
    $gap ?= 64px
@@ -139,6 +148,7 @@ hexo config theme icarus
    ```
 
 3. 缩小边栏宽度 [引用](https://github.com/ppoffice/hexo-theme-icarus/issues/696)
+   
    `themes/icarus/layout/common/widgets.jsx`中修改widge宽度`is-4-widescreen`变小为`is-3-widescreen`。
    ``` javascript
    function getColumnSizeClass(columnCount) {
@@ -165,7 +175,9 @@ hexo config theme icarus
         'is-8-tablet is-8-desktop is-6-widescreen': columnCount === 3
     })} dangerouslySetInnerHTML={{ __html: body }}></div>
     ```
+
 4. 首页更改为两栏，文章页一栏
+   
    单独文章页的配置涉及到[icarus的优先级知识](https://ppoffice.github.io/hexo-theme-icarus/Configuration/icarus%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97-%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/)，简单说有四个配置方法
    - 站点配置文件：`_config.yml`
    - 主题配置文件：`_config.icarus.yml`
@@ -180,7 +192,7 @@ hexo config theme icarus
    widgets:
    ```
 
-    在`_config.post.yml`中，配置所有其他页面仍保持两栏布局：
+    在`_config.icarus.yml`中，配置所有其他页面仍保持两栏布局：
 
    ``` yml
     widgets:
@@ -212,21 +224,25 @@ hexo config theme icarus
    ```
 
 6. 分享文章
-   默认的`sharethis`大陆用不了，更换为`sharejs`（太杂了，TODO精简）
-   `_config.icarus.yml`更改`share`的`type`为sharejs
+   默认的`sharethis`大陆用不了，更换`_config.icarus.yml`中`share`的`type`为`sharejs`（太杂了，TODO精简）
+   
 
 7. To be Continue
 
 当然，如果你觉得还不错也可以直接clone我的git，欢迎star~
+
 ``` bash
 git clone https://github.com/godfly/godfly.github.io.git themes/icarus
 ```
+
 最后感谢Icarus作者
 
 ---
 
 ## Hexo博客撰写
+
 [Hexo官方文档](https://hexo.io/docs/writing.html) 比较详细，常用的命令：
+
 ``` bash
 # 创建新文章
 hexo new "my post"
@@ -250,22 +266,25 @@ hexo new photo "My Gallery"
 ---
 
 ## 上传github
+
 [Hexo官方文档](https://hexo.io/zh-cn/docs/github-pages) 比较详细，我使用的方法是`hexo git deploy`，这里默认你有github账号并配置了sshkey：
 
 1. github配置
    
-   新建仓库或修改仓库名为：<Your-Github-Username>.github.io，这个也是后面访问的域名。
+   新建仓库或修改仓库名为：`<Your-Github-Username>.github.io`，这个也是后面访问的域名。
    
-   在仓库settings中配置GitHub Pages，选择`Deploy from a branch`，配置`branch`与本地配置的branch对应，如我的是`page`
+   在仓库settings中配置GitHub Pages，选择`Deploy from a branch`，配置`branch`与本地配置的branch对应，例如我在master保留了完整源码，部署的branch则是`page`
 
 2. 本地配置
    
    1. Hexo安装Git插件
+   
    ``` bash
    npm install hexo-deployer-git
    ```
    
    2. 修改`_config.yml`文件，deploy部分为
+   
    ``` yml
    deploy:
     type: git
@@ -274,6 +293,7 @@ hexo new photo "My Gallery"
    ```
 
    3. Hexo部署
+   
    ``` bash
    # 清除缓存
    hexo clean
@@ -283,9 +303,9 @@ hexo new photo "My Gallery"
    hexo d
    ```
 
-3. 验证&Debug
-   验证：访问<Your-Github-Username>.github.io
-   Debug：使用chrome开发工具查看终端错误，例如我遇到了字体加载问题，解决方法是更换`_config.icarus.yml`的`fontcdn`为`loli`
+3. 验证 & Debug
+   - 验证：访问`<Your-Github-Username>.github.io`
+   - Debug：使用chrome开发工具查看终端错误，例如我遇到了字体加载问题，解决方法是更换`_config.icarus.yml`的`fontcdn`为`loli`
 
 到此即完成了hexo部署到github。
 
