@@ -1,8 +1,8 @@
 ---
-title: 关于
-description: 个人简介
+title: About Me
+description: Leap Faith Thinker
 layout: about
 comments: false
-sidebar: custom
 ---
+
 个人详细介绍

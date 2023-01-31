@@ -1,8 +1,7 @@
 ---
 title: About Me
 date: 2023-01-29 16:26:32
-layout: 
-tags:
+toc: true
 ---
 
 #Jam Young
@@ -10,6 +9,8 @@ tags:
 >测试引用
 
 测试`代码`
+
+<!-- more -->
 
 测试代码块
 ```json
