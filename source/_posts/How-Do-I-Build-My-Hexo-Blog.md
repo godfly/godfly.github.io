@@ -45,17 +45,19 @@ npm install -g hexo-cli
 npm install hexo
 ```
 
+---
+
 ### 3.Hexo建站
 [Hexo的官方文档](https://hexo.io/zh-cn/docs/setup)中有详细内容，下面记录命令。
 
-1.Hexo项目初始化
+1. Hexo项目初始化
 ``` bash
 hexo init <folder>
 cd <folder>
 npm install
 ```
 
-2.项目结构
+2. 项目结构
 新建完成后文件夹目录如下：
 ``` 
 .
@@ -74,7 +76,7 @@ npm install
 - source: 用户资源 文件夹。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽
 - themes: [主题](https://hexo.io/zh-cn/docs/themes) 文件夹。Hexo 会根据主题来生成静态页面
 
-3.验证
+3. 验证
 ``` shell
 # 启动服务
 hexo server
@@ -82,10 +84,12 @@ hexo server
 
 到此就完成了hexo的搭建
 
+---
+
 ## Icarus主题安装
 [Icarus用户指南](https://ppoffice.github.io/hexo-theme-icarus/tags/Icarus%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/) 中有详细内容，下面记录命令。
 
-1.Icarus下载
+1. Icarus下载
 我比较习惯用源码安装，方便后面修改。此外我没有采用submodule的方法：
 
 ``` shell
@@ -93,7 +97,7 @@ git clone https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus -b <ve
 ```
 可以省略`-b <version number>`来获取Icarus的最新开发版本。 如果你想同时下载Git仓库的完整提交历史，请同时省略`--depth 1`
 
-2.Icarus配置启用
+2. Icarus配置启用
 
 在站点配置文件`_config.yml`中的开启Icarus：
 ```
@@ -111,13 +115,15 @@ hexo config theme icarus
 
 到此就完成了Icarus主题安装
 
+---
+
 ## 主题自定义
 [Icarus用户指南](https://ppoffice.github.io/hexo-theme-icarus/tags/Icarus%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/) 中有详细内容，[Icarus社区](https://github.com/ppoffice/hexo-theme-icarus/discussions) 中有很多已解决的问题。下面记录我修改过的部分和遇到的坑，有些是Hexo的技巧也写在这里。
 
-### 1.首页文章折叠
+### 1. 首页文章折叠
 使用`<!-- MORE -->` 来设置简介，首页的文章预览超过一定长度时就自动折叠，并有一个`Read More`按钮
 
-### 2.Icarus样式修改
+### 2. Icarus样式修改
 
 1. Footer高度调整
    `themes/icarus/include/style/base.styl`中添加 `$footer-padding`，例如`$footer-padding ?= 2rem 1.5rem 2rem`
@@ -217,6 +223,8 @@ git clone https://github.com/godfly/godfly.github.io.git themes/icarus
 ```
 最后感谢Icarus作者
 
+---
+
 ## Hexo博客撰写
 [Hexo官方文档](https://hexo.io/docs/writing.html) 比较详细，常用的命令：
 ``` bash
@@ -238,6 +246,8 @@ hexo publish [layout] <title>
 # 根据 scaffolds 文件夹内相对应的模板文件（photo.md）来建立文件
 hexo new photo "My Gallery"
 ```
+
+---
 
 ## 上传github
 [Hexo官方文档](https://hexo.io/zh-cn/docs/github-pages) 比较详细，我使用的方法是`hexo git deploy`，这里默认你有github账号并配置了sshkey：
@@ -278,6 +288,8 @@ hexo new photo "My Gallery"
    Debug：使用chrome开发工具查看终端错误，例如我遇到了字体加载问题，解决方法是更换`_config.icarus.yml`的`fontcdn`为`loli`
 
 到此即完成了hexo部署到github。
+
+---
 
 ## 参考文档
 [Hexo官方文档](https://hexo.io/zh-cn/docs/) 
