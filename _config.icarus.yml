@@ -114,7 +114,7 @@ plugins:
     animejs: true
     back_to_top: true
     baidu_analytics:
-        tracking_id: 
+        tracking_id: c1eeb20d515b2804935a6ba7504ac987
     bing_webmaster:
         tracking_id: 
     busuanzi: false
@@ -129,7 +129,7 @@ plugins:
         policyLink: https://www.cookiesandyou.com/
     gallery: true
     google_analytics:
-        tracking_id: 
+        tracking_id: G-12W1QZD74X
     hotjar:
         site_id: 
     katex: false

@@ -226,7 +226,9 @@ hexo config theme icarus
    默认的`sharethis`大陆用不了，更换`_config.icarus.yml`中`share`的`type`为`sharejs`（太杂了，TODO精简）
    
 
-7. To be Continue
+7. 网站统计
+   我启用了Google和Baidu网站统计，具体方法见：[Icarus官方文档](https://ppoffice.github.io/hexo-theme-icarus/Plugins/Analytics/icarus%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97-%E7%BD%91%E7%AB%99%E5%88%86%E6%9E%90%E6%8F%92%E4%BB%B6/)
+8. To be Continue
 
 当然，如果你觉得还不错也可以直接clone我的git，欢迎star~
 
