@@ -262,6 +262,15 @@ hexo publish [layout] <title>
 
 # 根据 scaffolds 文件夹内相对应的模板文件（photo.md）来建立文件
 hexo new photo "My Gallery"
+
+# 清除缓存
+hexo clean
+
+# 生成可用文件
+hexo g
+
+# 本地查看
+hexo s
 ```
 
 ---

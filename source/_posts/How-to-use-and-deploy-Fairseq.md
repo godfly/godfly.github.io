@@ -41,9 +41,11 @@ git clone https://github.com/pytorch/fairseq
 cd fairseq
 pip install --editable ./
 ```
+
 ## 2. 整体流程图
 
 ## 3. 数据部分
+
 ### 1. 数据获取
 ### 2. 数据预处理
 
