@@ -26,4 +26,4 @@ I am an AI researcher at Meituan, China's leading technology company specializin
   - Graduated: 2018
 
 - **Bachelor's Degree**, Beijing University of Posts and Telecommunications
-  - Graduated: 2018
+  - Graduated: 2015
